@@ -1,4 +1,4 @@
-/* Step 11: Color Variables */
+
 :root {
     --accent-color: #800000;
     --gradient-color: #f6bb73;
@@ -7,7 +7,7 @@
     --dark-menu: #000000;
 }
 
-/* Reset and Global Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +21,7 @@ body {
     border: 2px solid var(--accent-color);
 }
 
-/* Rubric Requirement 5: Circles for list bullets */
+
 ul {
     margin-left: 2em;
     list-style-type: circle;
@@ -40,8 +40,7 @@ ul {
 .menu li {
     flex-basis: 20%;
     text-align: center;
-    position: relative; /* CRITICAL: Keeps submenu anchored to this button */
-}
+    position: relative; 
 
 .navbar a {
     display: block;
@@ -55,20 +54,20 @@ ul {
     color: var(--dark-menu);
 }
 
-/* Submenu - This makes it float and stay vertical */
+
 .submenu {
     display: none; 
-    position: absolute; /* Lifts menu so it doesn't push content down */
-    top: 100%;           /* Places it directly below the bar */
+    position: absolute; 
+    top: 100%;           
     left: 0;
-    width: 100%;         /* Matches the width of the button above it */
+    width: 100%;         
     background-color: var(--accent-color);
-    z-index: 1000;       /* Ensures it stays in front of images/text */
+    z-index: 1000;       
     list-style: none;
     padding: 0;
 }
 
-/* Forces vertical stacking for the rubric */
+
 .submenu li {
     flex-basis: 100%;
     text-align: left;
@@ -79,12 +78,12 @@ ul {
     padding: 10px;
 }
 
-/* Step 7-8: Show on hover (NO SPACE after colon) */
+
 .menu li:hover .submenu {
     display: block;
 }
 
-/* Header, Main, and Footer Styles */
+
 header {
     background-image: linear-gradient(30deg, var(--gradient-color) 0%, white 30%, white 65%, var(--gradient-color) 100%);
     border-bottom: 2px solid var(--accent-color);
