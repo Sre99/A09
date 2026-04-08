@@ -96,19 +96,27 @@ header {
 
 }
 .submenu {
-	display: none;
-	position: absolute;
-	left: 0;
-	right: 0;
-	background-color: var(--accent-color);
-	z-index: 100;
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    z-index: 1000; /* Increased to ensure it stays on top of images */
 
-	& li a{
-		margin: 0 2px 2px;
-	}
+    /* Force submenu items to stack vertically */
+    & li {
+        flex-basis: 100%; 
+        width: 100%;
+    }
+
+    & li a {
+        display: block; /* Required for vertical display [cite: 33] */
+        margin: 0 2px 2px;
+    }
 }
-.menu li:hover .submenu{
-	display: block;
+..menu li:hover .submenu {
+    display: block;
+}
 }
 .menu > li:first-child a {margin-left: 0;}
 .menu > li:last-child a {margin-right: 0;}
