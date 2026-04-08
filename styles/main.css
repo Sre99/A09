@@ -1,78 +1,105 @@
+/* Step 11: Color Variables */
 :root {
     --accent-color: #800000;
     --gradient-color: #f6bb73;
     --light-menu: #ffffff;
-    --mid-menu: #faebd7; /* antique white */
+    --mid-menu: #faebd7; 
     --dark-menu: #000000;
 }
 
-
-ul {
-    margin-left: 2em;
-    list-style-type: circle; 
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    width: min(95%, 1024px);
+    margin: auto;
+    border: 2px solid var(--accent-color);
+}
+
+/* Rubric Requirement 5: Circles for list bullets */
+ul {
+    margin-left: 2em;
+    list-style-type: circle;
+}
+
+/* Navigation Layout */
 .navbar {
     background-color: var(--accent-color);
 }
 
-
 .menu {
     display: flex;
-    flex-wrap: wrap; 
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
-
 
 .menu li {
-    flex-basis: 20%;      
-    text-align: center;   
-    position: relative;   
+    flex-basis: 20%;
+    text-align: center;
+    position: relative; /* CRITICAL: Keeps submenu anchored to this button */
 }
 
-
 .navbar a {
-    display: block;       
+    display: block;
     padding: 1em;
     text-decoration: none;
     color: var(--light-menu);
-    margin: 0 1px 2px;
 }
 
-.navbar a:focus, 
-.navbar a.current {
+.navbar a:hover, .navbar a:focus, .navbar a.current {
     background-color: var(--mid-menu);
     color: var(--dark-menu);
 }
 
-
-.submenu{         
-    position: absolute;   
+/* Submenu - This makes it float and stay vertical */
+.submenu {
+    display: none; 
+    position: absolute; /* Lifts menu so it doesn't push content down */
+    top: 100%;           /* Places it directly below the bar */
     left: 0;
-    right: 0;
+    width: 100%;         /* Matches the width of the button above it */
     background-color: var(--accent-color);
-    z-index: 1000;       
+    z-index: 1000;       /* Ensures it stays in front of images/text */
     list-style: none;
+    padding: 0;
 }
 
+/* Forces vertical stacking for the rubric */
+.submenu li {
+    flex-basis: 100%;
+    text-align: left;
+}
 
+.submenu li a {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 10px;
+}
+
+/* Step 7-8: Show on hover (NO SPACE after colon) */
 .menu li:hover .submenu {
     display: block;
 }
 
-.submenu li {
-    flex-basis: 100%;     
-
-.submenu li a {
-    display: block;       
-    margin: 0 2px 2px;
+/* Header, Main, and Footer Styles */
+header {
+    background-image: linear-gradient(30deg, var(--gradient-color) 0%, white 30%, white 65%, var(--gradient-color) 100%);
+    border-bottom: 2px solid var(--accent-color);
+    padding: 1em;
 }
 
+main {
+    display: flex;
+    padding: 1em;
+}
 
-.menu > li:first-child a { margin-left: 0; }
-.menu > li:last-child a { margin-right: 0; }
-
- 
-
+footer {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 1em;
+    clear: both;
+}
