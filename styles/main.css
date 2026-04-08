@@ -1,186 +1,81 @@
-/* custom property */
 :root {
-	
-    /* Your existing variables... */
+    --accent-color: #800000;
+    --gradient-color: #f6bb73;
     --light-menu: #ffffff;
-    --mid-menu: #faebd7; /* Antique White */
+    --mid-menu: #faebd7; /* antique white */
     --dark-menu: #000000;
 }
 
-/* reset */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
 
-/* default styles */
-body {
-	font-family: Arial, Helvetica, sans-serif;
-    font-size: calc(15px + .2vw);
-	width: min(80%, 1024px);
-	line-height: 1.5;
-	margin: auto;
-	border: 2px solid var(--accent-color);
-}
-h1, h2, h3, p, ul {
-	padding: .25em 0;
-}
-a:hover, a:focus{
-	font-style: italic;
-	color: var(--accent-color);
-}
-h1 {
-	font-size: 150%;
-}
-h2 {
-	font-size: 130%;
-	color: var(--accent-color);
-}
-h3 {
-	font-size: 105%;
-}
 ul {
-	margin-left: 2em;
-	list-style: circle;
+    margin-left: 2em;
+    list-style-type: circle; 
 }
 
-/* the styles for the header */
-header {
-	line-height: 1.2;
-	border-bottom: 2px solid var(--accent-color);
-	background-image: linear-gradient(
-	    30deg, var(--gradient-color) 0%, white 30%, white 65%, var(--gradient-color) 100%);
-	& h2 {
-		font-size: 175%;
-		padding: .5em 0 0 0;
-	}
-	& h3 {
-		font-size: 130%;
-		font-style: italic;
-		padding-bottom: 1em;
-	}
-	& img {
-		width: clamp(40px, 15%, 80px);
-		float: left;
-		margin: .75em 1em;
-	}
-}
 .navbar {
-	background-color: var(--accent-color);
+    background-color: var(--accent-color);
 }
-.menu{
-	display: flex;
-	flex-wrap: none;
-	list-style: none;
-	margin: 0;
-	padding: 0;
 
-	& li {
-		flex-basis: 20%;
-		text-align: center;
-		position: relative;
 
-		& a {
-			display: block;
-			padding: 1em;
-			text-decoration: none;
-			color: var(--light-menu);
-			margin: 0 1px 2px;
-		}
-		& a:hover, & a:focus, & a.current {
-			background-color: var(--mid-menu);
-			color: var(--dark-menu);
-		}
-	}
-
+.menu {
+    display: flex;
+    flex-wrap: wrap; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
+
+.menu li {
+    flex-basis: 20%;      
+    text-align: center;   
+    position: relative;   
+}
+
+
+.navbar a {
+    display: block;       
+    padding: 1em;
+    text-decoration: none;
+    color: var(--light-menu);
+    margin: 0 1px 2px;
+}
+
+
+.navbar a:hover, 
+.navbar a:focus, 
+.navbar a.current {
+    background-color: var(--mid-menu);
+    color: var(--dark-menu);
+}
+
+
 .submenu {
-    display: none;
-    position: absolute;
+    display: none;        
+    position: absolute;   
     left: 0;
     right: 0;
     background-color: var(--accent-color);
-    z-index: 1000; /* Increased to ensure it stays on top of images */
-
-    /* Force submenu items to stack vertically */
-    & li {
-        flex-basis: 100%; 
-        width: 100%;
-    }
-
-    & li a {
-        display: block; /* Required for vertical display [cite: 33] */
-        margin: 0 2px 2px;
-    }
+    z-index: 1000;       
+    list-style: none;
 }
-..menu li:hover .submenu {
+
+
+.menu li:hover .submenu {
     display: block;
 }
-}
-.menu > li:first-child a {margin-left: 0;}
-.menu > li:last-child a {margin-right: 0;}
 
-/* the styles for the main content */
-main {
-	display: flex;
-	clear: left;
-	padding: 0 1em 1em;
-	& blockquote {
-		font-style: italic;
-		padding-left: 1em;
-	}
-	& h3 + img { /* speaker images */
-		width: clamp(40px, 50%, 75px);
-		border: 4px double var(--accent-color);
-		border-radius: 10px;
-	}
+.submenu li {
+    flex-basis: 100%;     
+
+.submenu li a {
+    display: block;       
+    margin: 0 2px 2px;
 }
 
-/* the styles for the section */
-section {
-	flex-basis: 75%;
-	padding-left: .5em;
-	& img {
-		width: clamp(100px, 50%, 250px);
-		float: right;
-		margin: 0 1em .25em;
-	}
-}
 
-/* the styles for the aside */
-aside {
-	flex-basis: 25%;
-	padding-right: .5em;
-}
+.menu > li:first-child a { margin-left: 0; }
+.menu > li:last-child a { margin-right: 0; }
 
-/* the styles for the footer */
-footer {
-	background-color: var(--accent-color);
-	& p {
-		text-align: center;
-		color: white;
-		padding: 1em 0;
-	}
-}
+ 
 
-/* CSS class */
-.featured {
-	border-top: 2px solid var(--accent-color);
-	border-bottom: 2px solid var(--accent-color);
-	padding: .5em 0 1em;
-}
-.speaker {
-	& h1 {
-		color: var(--accent-color);
-	}
-	& h2 {
-		color: black;
-	}
-	& p {
-		padding: .5em 0; 
-	}	
-}
-.large {
-	font-size: 125%;
-}
