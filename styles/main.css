@@ -7,7 +7,7 @@
     --dark-menu: #000000;
 }
 
-
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -15,21 +15,31 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     width: min(95%, 1024px);
     margin: auto;
     border: 2px solid var(--accent-color);
+    line-height: 1.5;
 }
 
 
-ul {
-    margin-left: 2em;
-    list-style-type: circle;
+header {
+    display: flow-root; 
+    padding: 1em;
+    background-image: linear-gradient(30deg, var(--gradient-color) 0%, white 30%, white 65%, var(--gradient-color) 100%);
+    border-bottom: 2px solid var(--accent-color);
 }
 
-/* Navigation Layout */
+header img {
+    float: left;
+    width: clamp(60px, 15%, 80px);
+    margin-right: 1.5em;
+}
+
+
 .navbar {
     background-color: var(--accent-color);
+    width: 100%;
 }
 
 .menu {
@@ -38,15 +48,17 @@ ul {
 }
 
 .menu li {
-    flex-basis: 20%;
+    flex: 1; /* Distributes 5 items evenly (20% each) */
     text-align: center;
-    position: relative; 
+    position: relative; /* Anchor for the dropdown */
+}
 
 .navbar a {
-    display: block;
-    padding: 1em;
+    display: block; /* Required to give the red bar height */
+    padding: 1em 0;
     text-decoration: none;
     color: var(--light-menu);
+    font-weight: bold;
 }
 
 .navbar a:hover, .navbar a:focus, .navbar a.current {
@@ -56,26 +68,24 @@ ul {
 
 
 .submenu {
-    display: none; 
-    position: absolute; 
-    top: 100%;           
+    display: none;
+    position: absolute;
+    top: 100%;
     left: 0;
-    width: 100%;         
+    width: 100%;
     background-color: var(--accent-color);
-    z-index: 1000;       
+    z-index: 1000;
     list-style: none;
-    padding: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-
 .submenu li {
-    flex-basis: 100%;
     text-align: left;
 }
 
 .submenu li a {
-    border-top: 1px solid rgba(255,255,255,0.2);
-    padding: 10px;
+    padding: 10px 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 
@@ -84,21 +94,31 @@ ul {
 }
 
 
-header {
-    background-image: linear-gradient(30deg, var(--gradient-color) 0%, white 30%, white 65%, var(--gradient-color) 100%);
-    border-bottom: 2px solid var(--accent-color);
-    padding: 1em;
-}
-
 main {
     display: flex;
-    padding: 1em;
+    padding: 1.5em;
 }
 
+section {
+    flex: 3;
+    padding-right: 1em;
+}
+
+aside {
+    flex: 1;
+}
+
+
+ul {
+    margin-left: 2em;
+    list-style-type: circle;
+}
+
+/* Footer Fix */
 footer {
     background-color: var(--accent-color);
     color: white;
     text-align: center;
-    padding: 1em;
+    padding: 1.5em;
     clear: both;
 }
