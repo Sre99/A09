@@ -41,8 +41,6 @@ ul {
     margin: 0 1px 2px;
 }
 
-
-.navbar a:hover, 
 .navbar a:focus, 
 .navbar a.current {
     background-color: var(--mid-menu);
